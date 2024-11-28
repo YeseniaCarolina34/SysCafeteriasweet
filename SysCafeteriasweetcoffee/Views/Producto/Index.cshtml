@@ -93,28 +93,42 @@
     function renderOrder() {
         const orderList = document.getElementById('order-list');
         const totalSpan = document.getElementById('total');
-        orderList.innerHTML = '';
+        orderList.innerHTML = '';  // Limpiar la lista de productos
         let total = 0;
 
+        // Iterar sobre los productos en el carrito
         order.forEach(item => {
-            total += item.precio * item.quantity;
-            const li = document.createElement('li'); 
+            total += item.precio * item.quantity;  // Sumar al total por cada producto
+            const li = document.createElement('li');
             li.classList.add("order-item");
 
+            // Crear cada elemento de la lista
             li.innerHTML = `
-                                ${item.nombre} - $${item.precio.toFixed(2)}
-                                <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity('${item.id}', this.value)">
-                                <button onclick="removeFromOrder('${item.id}')">Eliminar</button>
-                            `;
+                ${item.nombre} - $${item.precio.toFixed(2)}
+                <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity('${item.id}', this.value)">
+                <button onclick="removeFromOrder('${item.id}')">Eliminar</button>
+            `;
             orderList.appendChild(li);
         });
 
+        // Actualizar el total en la vista
         totalSpan.textContent = total.toFixed(2);
     }
 
     function removeFromOrder(id) {
         order = order.filter(item => item.id !== id);
         renderOrder();
+    }
+
+
+
+    // Actualizar la cantidad de un producto en el carrito
+    function updateQuantity(id, newQuantity) {
+        const item = order.find(item => item.id === id);
+        if (item) {
+            item.quantity = parseInt(newQuantity);  // Actualiza la cantidad del producto
+            renderOrder();  // Vuelve a renderizar la orden
+        }
     }
 
 

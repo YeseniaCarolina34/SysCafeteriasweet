@@ -19,6 +19,9 @@ namespace SysCafeteriasweetcoffee.Controllers
         {
             _context = context;
         }
+
+        
+
         // GET: DetalleOrden Idea
         public async Task<IActionResult> Index2()
         {
