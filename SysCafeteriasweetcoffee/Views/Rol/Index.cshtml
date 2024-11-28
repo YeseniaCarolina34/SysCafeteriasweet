@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SysCafeteriasweetcoffee.Models.Rol>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Rol</h1>
+<head>
+    <link rel="stylesheet" href="~/css/index.css">
+</head>
+
+<p>
+    <div>
+        <a asp-action="Create">
+            <button class="view-all-btn">Create New</button>
+        </a>
+    </div>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn-custom">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn-custom">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn-custom">Delete</a>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>

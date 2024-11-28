@@ -1,0 +1,46 @@
+﻿@model SysCafeteriasweetcoffee.Models.Orden
+
+@{
+    ViewData["Title"] = "Details";
+}
+<head>
+    <link rel="stylesheet" href="~/css/formulario.css">
+</head>
+<h1>Detalles</h1>
+
+<h4>Orden</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form class="details-form">
+            <!-- Campo Fecha -->
+            <div class="form-group">
+                <label>Fecha:</label>
+                <input type="text" class="form-control" value="@Model.Fecha" readonly />
+            </div>
+            <!-- Campo Total -->
+            <div class="form-group">
+                <label>Total:</label>
+                <input type="text" class="form-control" value="@Model.Total" readonly />
+            </div>
+            <!-- Campo Usuario -->
+            <div class="form-group">
+                <label>Usuario:</label>
+                <input type="text" class="form-control" value="@Model.IdUsuarioNavigation?.Id" readonly />
+            </div>
+            <!-- Botones -->
+            <div class="btn-spacing">
+                <a asp-action="Editar" asp-route-id="@Model?.Id">
+                    <button type="button" class="view-all-btn">Editar</button>
+                </a>
+            </div>
+        </form>
+        <!-- Botón Back to List -->
+        <div class="btn-back">
+            <a asp-action="Index">
+                <button class="view-all-btn">Regresar</button>
+            </a>
+        </div>
+    </div>
+</div>

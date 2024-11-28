@@ -1,0 +1,66 @@
+﻿@model SysCafeteriasweetcoffee.Models.Usuario
+
+@{
+    ViewData["Title"] = "Details";
+}
+<head>
+    <link rel="stylesheet" href="~/css/formulario.css">
+</head>
+<h1>Detalles</h1>
+
+<h4>Usuario</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form class="details-form">
+            <!-- Grupo de Nombre -->
+            <div class="form-group">
+                <label>Nombre:</label>
+                <input type="text" class="form-control" value="@Model.Nombre" readonly />
+            </div>
+            <!-- Grupo de Apellido -->
+            <div class="form-group">
+                <label>Apellido:</label>
+                <input type="text" class="form-control" value="@Model.Apellido" readonly />
+            </div>
+            <!-- Grupo de Login -->
+            <div class="form-group">
+                <label>Login:</label>
+                <input type="text" class="form-control" value="@Model.Login" readonly />
+            </div>
+            <!-- Grupo de Password -->
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="text" class="form-control" value="@Model.Password" readonly />
+            </div>
+            <!-- Grupo de Estatus -->
+            <div class="form-group">
+                <label>Estatus:</label>
+                <input type="text" class="form-control" value="@Model.Estatus" readonly />
+            </div>
+            <!-- Grupo de Fecha de Registro -->
+            <div class="form-group">
+                <label>Fecha de Registro:</label>
+                <input type="text" class="form-control" value="@Model.FechaRegistro.ToString("yyyy-MM-dd")" readonly />
+            </div>
+            <!-- Grupo de Rol -->
+            <div class="form-group">
+                <label>Rol:</label>
+                <input type="text" class="form-control" value="@Model.IdRolNavigation?.Nombre" readonly />
+            </div>
+            <!-- Botones -->
+            <div class="btn-spacing">
+                <a asp-action="Editar" asp-route-id="@Model?.Id">
+                    <button type="button" class="view-all-btn">Editar</button>
+                </a>
+            </div>
+        </form>
+        <!-- Botón Back to List -->
+        <div class="btn-back">
+            <a asp-action="Index">
+                <button class="view-all-btn">Regresar</button>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<SysCafeteriasweetcoffee.Models.Categoria>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Charm - Pastries</title>
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header"></header>
+    </div>
+    <h2>Categorias Bebidas y Comidas</h2>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 mb-3">
+                <div class="dessert-item">
+
+                    <!-- Imagen del producto -->
+                    <img src="@item.img" class="card-img-top" alt="Imagen del producto" style="height: 200px; object-fit: cover;">
+
+                    <!-- Contenido de la tarjeta -->
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Nombre</h5>
+                        <div class="d-flex justify-content-between">
+                            <a asp-controller="Categoria" asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-secondary">Ver todos los productos</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        }
+    </div>
+
+</body>
+</html>

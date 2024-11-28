@@ -1,0 +1,58 @@
+﻿@model SysCafeteriasweetcoffee.Models.DetalleOrden
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/formulario.css">
+</head>
+
+<h1>Detalles</h1>
+
+<h4>Detalle de Orden</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form class="details-form">
+            <!-- Grupo Cantidad -->
+            <div class="form-group">
+                <label>Cantidad:</label>
+                <input type="text" class="form-control" value="@Model.Cantidad" readonly />
+            </div>
+
+            <!-- Grupo Precio -->
+            <div class="form-group">
+                <label>Precio:</label>
+                <input type="text" class="form-control" value="@Model.Precio" readonly />
+            </div>
+
+            <!-- Grupo Orden -->
+            <div class="form-group">
+                <label>Orden:</label>
+                <input type="text" class="form-control" value="@Model.IdOrdenNavigation?.Id" readonly />
+            </div>
+
+            <!-- Grupo Producto -->
+            <div class="form-group">
+                <label>Producto:</label>
+                <input type="text" class="form-control" value="@Model.IdProductoNavigation?.Id" readonly />
+            </div>
+
+            <!-- Botones -->
+            <div class="btn-spacing">
+                <a asp-action="Editar" asp-route-id="@Model?.Id">
+                    <button type="button" class="view-all-btn">Editar</button>
+                </a>
+            </div>
+        </form>
+
+        <!-- Botón Regresar -->
+        <div class="btn-back">
+            <a asp-action="Index">
+                <button class="view-all-btn">Regresar</button>
+            </a>
+        </div>
+    </div>
+</div>

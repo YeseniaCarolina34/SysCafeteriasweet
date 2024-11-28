@@ -1,0 +1,57 @@
+﻿@model SysCafeteriasweetcoffee.Models.DetalleOrden
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/formulario.css">
+</head>
+<h1>Eliminar Detalle de Orden</h1>
+
+<h3>¿Estás seguro que deseas eliminar este detalle?</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Grupo Cantidad -->
+            <div class="form-group">
+                <label class="control-label">Cantidad</label>
+                <input asp-for="Cantidad" class="form-control" readonly />
+            </div>
+
+            <!-- Grupo Precio -->
+            <div class="form-group">
+                <label class="control-label">Precio</label>
+                <input asp-for="Precio" class="form-control" readonly />
+            </div>
+
+            <!-- Grupo Orden -->
+            <div class="form-group">
+                <label class="control-label">Orden</label>
+                <input class="form-control" value="@Model.IdOrdenNavigation?.Id" readonly />
+            </div>
+
+            <!-- Grupo Producto -->
+            <div class="form-group">
+                <label class="control-label">Producto</label>
+                <input class="form-control" value="@Model.IdProductoNavigation?.Id" readonly />
+            </div>
+
+            <!-- Botón Eliminar -->
+            <div class="form-group">
+                <input type="submit" value="Eliminar" class="btn btn-primary btn-spacing" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Botón Regresar -->
+<div>
+    <a asp-action="Index">
+        <button class="view-all-btn">Regresar</button>
+    </a>
+</div>

@@ -1,0 +1,51 @@
+﻿@model SysCafeteriasweetcoffee.Models.Orden
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/formulario.css">
+</head>
+<h1>Eliminar Orden</h1>
+
+<h3>¿Estás seguro que deseas eliminar esta orden?</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Campo Fecha -->
+            <div class="form-group">
+                <label class="control-label">Fecha</label>
+                <input asp-for="Fecha" class="form-control" readonly />
+            </div>
+
+            <!-- Campo Total -->
+            <div class="form-group">
+                <label class="control-label">Total</label>
+                <input asp-for="Total" class="form-control" readonly />
+            </div>
+
+            <!-- Campo Usuario -->
+            <div class="form-group">
+                <label class="control-label">Usuario</label>
+                <input class="form-control" value="@Model.IdUsuarioNavigation?.Id" readonly />
+            </div>
+
+            <!-- Botón Eliminar -->
+            <div class="form-group">
+                <input type="submit" value="Eliminar" class="btn btn-primary btn-spacing" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Botón Regresar -->
+<div>
+    <a asp-action="Index">
+        <button class="view-all-btn">Regresar</button>
+    </a>
+</div>

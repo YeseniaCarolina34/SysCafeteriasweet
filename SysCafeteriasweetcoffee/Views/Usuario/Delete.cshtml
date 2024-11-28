@@ -1,0 +1,75 @@
+﻿@model SysCafeteriasweetcoffee.Models.Usuario
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/formulario.css">
+</head>
+<h1>Eliminar Usuario</h1>
+
+<h3>¿Estás seguro que deseas eliminar este usuario?</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Grupo de Nombre -->
+            <div class="form-group">
+                <label class="control-label">Nombre</label>
+                <input asp-for="Nombre" class="form-control" readonly />
+            </div>
+
+            <!-- Grupo de Apellido -->
+            <div class="form-group">
+                <label class="control-label">Apellido</label>
+                <input asp-for="Apellido" class="form-control" readonly />
+            </div>
+
+            <!-- Grupo de Login -->
+            <div class="form-group">
+                <label class="control-label">Login</label>
+                <input asp-for="Login" class="form-control" readonly />
+            </div>
+
+            <!-- Grupo de Password -->
+            <div class="form-group">
+                <label class="control-label">Password</label>
+                <input asp-for="Password" class="form-control" readonly />
+            </div>
+
+            <!-- Grupo de Estatus -->
+            <div class="form-group">
+                <label class="control-label">Estatus</label>
+                <input asp-for="Estatus" class="form-control" readonly />
+            </div>
+
+            <!-- Grupo de Fecha de Registro -->
+            <div class="form-group">
+                <label class="control-label">Fecha de Registro</label>
+                <input type="text" class="form-control" value="@Model.FechaRegistro.ToString("yyyy-MM-dd")" readonly />
+            </div>
+
+            <!-- Grupo de Rol -->
+            <div class="form-group">
+                <label class="control-label">Rol</label>
+                <input type="text" class="form-control" value="@Model.IdRolNavigation?.Nombre" readonly />
+            </div>
+
+            <!-- Botón de Eliminar -->
+            <div class="form-group">
+                <input type="submit" value="Eliminar" class="btn btn-primary btn-spacing" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Botón Back to List -->
+<div>
+    <a asp-action="Index">
+        <button class="view-all-btn">Regresar</button>
+    </a>
+</div>

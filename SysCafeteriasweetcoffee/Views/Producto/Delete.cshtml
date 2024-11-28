@@ -1,0 +1,56 @@
+﻿@model SysCafeteriasweetcoffee.Models.Producto
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/formulario.css">
+</head>
+<h1>Eliminar Producto</h1>
+
+<h3>¿Estás seguro que deseas eliminar este producto?</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Delete" class="details-form">
+            <!-- Campo Nombre -->
+            <div class="form-group">
+                <label>Nombre:</label>
+                <input type="text" class="form-control" value="@Model.Nombre" readonly />
+            </div>
+            <!-- Campo Precio -->
+            <div class="form-group">
+                <label>Precio:</label>
+                <input type="text" class="form-control" value="@Model.Precio" readonly />
+            </div>
+            <!-- Campo Descripción -->
+            <div class="form-group">
+                <label>Descripción:</label>
+                <input type="text" class="form-control" value="@Model.Descripcion" readonly />
+            </div>
+            <!-- Campo Categoría -->
+            <div class="form-group">
+                <label>Categoría:</label>
+                <input type="text" class="form-control" value="@Model.IdCategoriaNavigation?.Id" readonly />
+            </div>
+            <!-- Campo Imagen -->
+            <div class="form-group">
+                <label>Imagen:</label>
+                <input type="text" class="form-control" value="@Model.img" readonly />
+            </div>
+            <!-- Botón Eliminar -->
+            <div class="form-group">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Eliminar" class="btn btn-danger btn-spacing" />
+            </div>
+        </form>
+        <!-- Botón Back to List -->
+        <div class="btn-back">
+            <a asp-action="Index">
+                <button class="view-all-btn">Regresar</button>
+            </a>
+        </div>
+    </div>
+</div>

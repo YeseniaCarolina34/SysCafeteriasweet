@@ -1,0 +1,42 @@
+﻿@model IEnumerable<SysCafeteriasweetcoffee.Models.Categoria>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Categorías</h1>
+
+<p>
+    <div>
+        <a asp-action="Create">
+            <button class="view-all-btn">Crear Nueva Categoria</button>
+        </a>
+    </div>
+</p>
+
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 mb-3">
+            <div class="dessert-item">
+
+
+                <!-- Imagen del producto -->
+                <img src="@item.img" class="card-img-top" alt="Imagen del producto" style="height: 200px; object-fit: cover;">
+
+                <!-- Contenido de la tarjeta -->
+                <div class="card-body">
+                    <h5 class="card-title">@item.Nombre</h5>
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-secondary">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">Delete</a>
+                </div>
+                   
+            </div>
+        </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,34 @@
+﻿@model SysCafeteriasweetcoffee.Models.Rol
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/formulario.css">
+</head>
+<h1>Eliminar Rol</h1>
+
+<h3>¿Estás seguro que deseas eliminar este rol?</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label class="control-label">Rol</label>
+                <input asp-for="Nombre" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Eliminar" class="btn btn-primary btn-spacing" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+<a asp-action="Index">
+    <button class="view-all-btn">Regresar</button>
+</a>
+</div>
