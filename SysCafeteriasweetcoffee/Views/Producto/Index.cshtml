@@ -134,11 +134,21 @@
             })
         }).then(response => {
             if (response.ok) {
-                alert('Orden enviada correctamente');
-                order = [];
-                renderOrder();
-                toggleSidebar()
+                // Mostrar el mensaje de éxito usando SweetAlert
+                Swal.fire('¡Éxito!', '¡Tu orden ha sido creada exitosamente y está en proceso!', 'success')
+                    .then(() => {
+                        // Limpiar la orden y la interfaz después de mostrar el mensaje
+                        order = [];
+                        renderOrder();
+                        toggleSidebar();
+                    });
+            } else {
+                // Si la respuesta no es exitosa, mostrar un mensaje de error
+                Swal.fire('Error', 'Hubo un problema al procesar tu orden. Intenta nuevamente.', 'error');
             }
+        }).catch(error => {
+            // Manejo de errores en caso de que la solicitud falle
+            Swal.fire('Error', 'Hubo un problema al enviar la solicitud. Intenta nuevamente.', 'error');
         });
     });
     function toggleSidebar() {
@@ -150,6 +160,7 @@
 
 </script>
 <style>
+
 
     /* Estilo para centrar los botones */
     .button-container {

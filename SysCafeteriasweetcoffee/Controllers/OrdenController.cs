@@ -85,7 +85,7 @@ namespace SysCafeteriasweetcoffee.Controllers
             }
 
             _context.SaveChanges();
-            return RedirectToAction("Index", "Producto"); 
+            return Ok(new { mensaje = "¡Tu orden ha sido creada exitosamente y está en proceso!" });
         } 
 
 
@@ -211,6 +211,7 @@ namespace SysCafeteriasweetcoffee.Controllers
 
 
         // GET: Orden
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Index()
         {
             var bDContext = _context.Orden
